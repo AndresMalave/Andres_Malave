@@ -173,8 +173,8 @@ export default function Portfolio() {
               <div className="grid grid-cols-1 gap-4">
                 {projects.map((item, index) => {
                   return (
-                    <a href={item.url} target="_blank" rel="noopener noreferrer">
-                      <Card key={index} className="bg-navy-900 text-white border-none transition-all duration-300 hover:bg-[#17274B] hover:bg-opacity-60">
+                    <a key={index} href={item.url} target="_blank" rel="noopener noreferrer">
+                      <Card className="bg-navy-900 text-white border-none transition-all duration-300 hover:bg-[#17274B] hover:bg-opacity-60">
                         <CardContent className="p-2">
                           <div className="flex justify-between items-start">
                             <div className="w-28">
