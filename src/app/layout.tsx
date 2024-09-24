@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ThemeProvider } from "@/components/theme-provider";
+import Script from 'next/script';
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -15,7 +16,10 @@ export default function RootLayout({
   return (
     <html lang="es" suppressHydrationWarning>
       <head>
-        <script src="https://kit.fontawesome.com/acc8e6a42c.js" crossOrigin="anonymous"></script>
+        <Script
+          src="https://kit.fontawesome.com/acc8e6a42c.js"
+          crossOrigin="anonymous"
+        />
       </head>
       <body>
         <ThemeProvider
