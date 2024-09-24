@@ -14,6 +14,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es" suppressHydrationWarning>
+      <head>
+        <script src="https://kit.fontawesome.com/acc8e6a42c.js" crossOrigin="anonymous"></script>
+      </head>
       <body>
         <ThemeProvider
           attribute="class"

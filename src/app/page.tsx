@@ -106,16 +106,17 @@ export default function Portfolio() {
             {/* Social Links */}
             <div className="flex space-x-4 mt-8 lg:mt-0">
               <Button variant="ghost" size="icon">
-                <Mail size={25} color='gray' />
+                <i className="fa-solid fa-envelope" style={{ fontSize: "25px", color: "gray" }}></i>
               </Button>
               <Button variant="ghost" size="icon">
-                <Github size={25} color='gray' />
+                <a href={"https://discord.com/users/503681045846163458"} target="_blank" rel="noopener noreferrer">
+                  <i className="fa-brands fa-discord" style={{ fontSize: "25px", color: "gray" }}></i>
+                </a>
               </Button>
               <Button variant="ghost" size="icon">
-                <Mail size={25} color='gray' />
-              </Button>
-              <Button variant="ghost" size="icon">
-                <Github size={25} color='gray' />
+                <a href={"https://t.me/andres_malave"} target="_blank" rel="noopener noreferrer">
+                  <i className="fa-brands fa-telegram" style={{ fontSize: "25px", color: "gray" }}></i>
+                </a>
               </Button>
             </div>
           </div>
