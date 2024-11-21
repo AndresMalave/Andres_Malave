@@ -6,9 +6,9 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
 import { ExternalLink } from 'lucide-react'
 import { experience } from '@/lib/experience'
-import { Badge } from '@/components/ui/badge'
 import Image from 'next/image'
 import { projects } from '@/lib/projects'
+import EmailModal from '@/components/own/EmailModal'
 
 export default function Portfolio() {
   const [activeSection, setActiveSection] = useState('about')
@@ -71,7 +71,7 @@ export default function Portfolio() {
       <div
         className="pointer-events-none fixed inset-0 z-30 transition-opacity duration-300"
         style={{
-          background: `radial-gradient(circle 300px at ${mousePosition.x}px ${mousePosition.y}px, rgba(17,32,68,0.3), transparent 100%)`,
+          background: `radial-gradient(circle 500px at ${mousePosition.x}px ${mousePosition.y}px, rgba(17,32,68,0.3), transparent 100%)`,
         }}
       />
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -105,9 +105,7 @@ export default function Portfolio() {
 
             {/* Social Links */}
             <div className="flex space-x-4 mt-8 lg:mt-0">
-              <Button variant="ghost" size="icon">
-                <i className="fa-solid fa-envelope" style={{ fontSize: "25px", color: "gray" }}></i>
-              </Button>
+              <EmailModal />
               <Button variant="ghost" size="icon">
                 <a href={"https://discord.com/users/503681045846163458"} target="_blank" rel="noopener noreferrer">
                   <i className="fa-brands fa-discord" style={{ fontSize: "25px", color: "gray" }}></i>
@@ -118,6 +116,7 @@ export default function Portfolio() {
                   <i className="fa-brands fa-telegram" style={{ fontSize: "25px", color: "gray" }}></i>
                 </a>
               </Button>
+
             </div>
           </div>
         </div>
@@ -149,11 +148,14 @@ export default function Portfolio() {
                             </CardHeader>
                             <p className="text-sm text-gray-300 mb-4">{item.description}</p>
                             <div className="flex flex-wrap gap-2">
-                              {item.technologies.map((item, index) => {
+                              {item.technologies.map((tech) => {
                                 return (
-                                  <Badge key={index} variant="default" className="bg-[rgba(25,55,86,1)] text-white pointer-events-none">
-                                    {item.name}
-                                  </Badge>
+                                  <span
+                                    key={tech.name}
+                                    className="px-3 py-1 text-sm rounded-full bg-[#112240] text-[#64f9d7]"
+                                  >
+                                    {tech.name}
+                                  </span>
                                 )
                               })}
                             </div>
@@ -193,11 +195,14 @@ export default function Portfolio() {
                               </CardHeader>
                               <p className="text-sm text-gray-300 mb-4">{item.description}</p>
                               <div className="flex flex-wrap gap-2">
-                                {item.technologies.map((tech, index) => {
+                                {item.technologies.map((tech) => {
                                   return (
-                                    <Badge key={index} variant="default" className="bg-[rgba(25,55,86,1)] text-white pointer-events-none">
+                                    <span
+                                      key={tech.name}
+                                      className="px-3 py-1 text-sm rounded-full bg-[#112240] text-[#64f9d7]"
+                                    >
                                       {tech.name}
-                                    </Badge>
+                                    </span>
                                   )
                                 })}
                               </div>
@@ -210,8 +215,8 @@ export default function Portfolio() {
                 })}
 
                 <div>
-                  <a href={"/"} target="_blank" rel="noopener noreferrer">
-                    <Button variant="link" className='inline-flex items-center gap-2 px-0'>
+                  <a href={"/projects"}>
+                    <Button variant="link" className='inline-flex items-center gap-2 px-0 text-md'>
                       See all projects <ExternalLink size={15} />
                     </Button>
                   </a>
